@@ -1,10 +1,11 @@
 {
   "name": "reacttimer",
   "version": "1.0.0",
+  "private": true,
   "description": "React Timer Tutorial Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start",
     "start": "node server.js"
   },
   "author": "Andrew Warko",
@@ -23,12 +24,24 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.23.1",
+    "expect": "^1.20.2",
     "foundation-sites": "^6.2.3",
     "jquery": "^2.2.4",
+    "karma": "^1.1.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.0.4",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.5.3",
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewwarko/Learning-ReactTimer"
   }
 }
