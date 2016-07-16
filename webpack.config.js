@@ -2,10 +2,10 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: [
-        'webpack-dev-server/client?http://localhost:3001',
-        'webpack/hot/dev-server',
         'script!jquery/dist/jquery.min.js',
         'script!foundation-sites/dist/foundation.min.js',
+        'webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/dev-server',
         './app/app.jsx'
     ],
     externals: {
@@ -31,7 +31,8 @@ module.exports = {
             applicationStyles: 'app/styles/app.scss',
             Navigation: 'app/components/Navigation.jsx',
             Timer: 'app/components/Timer.jsx',
-            Countdown: 'app/components/Countdown.jsx'
+            Countdown: 'app/components/Countdown.jsx',
+            Clock: 'app/components/Clock.jsx'
         },
         extensions: ['', '.js', '.jsx']
     },
