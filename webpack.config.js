@@ -2,6 +2,8 @@ var webpack = require('webpack');
 
 module.exports = {
     entry: [
+        'webpack-dev-server/client?http://localhost:3001',
+        'webpack/hot/dev-server',
         'script!jquery/dist/jquery.min.js',
         'script!foundation-sites/dist/foundation.min.js',
         './app/app.jsx'
@@ -13,30 +15,32 @@ module.exports = {
         new webpack.ProvidePlugin({
             '$': 'jquery',
             'jQuery': 'jquery'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
     ],
     output: {
         path: __dirname,
-        filename: './public/bundle.js'
+        publicPath: "/public/",
+        filename: 'bundle.js'
     },
     resolve: {
         root: __dirname,
         alias: {
             Main: 'app/components/Main.jsx',
             applicationStyles: 'app/styles/app.scss',
-            Navigation: 'app/components/Navigation.jsx'
+            Navigation: 'app/components/Navigation.jsx',
+            Timer: 'app/components/Timer.jsx',
+            Countdown: 'app/components/Countdown.jsx'
         },
         extensions: ['', '.js', '.jsx']
     },
     module: {
         loaders: [
             {
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'es2015', 'stage-0']
-                },
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/
+                exclude: /(node_modules|bower_components)/,
+                loaders: ["react-hot-loader", "babel-loader"],
             }
         ]
     },
