@@ -11,6 +11,7 @@ var Countdown = React.createClass({
         };
     },
 
+    // Called after update to the application
     componentDidUpdate: function (prevProps, prevState) {
         if (this.state.countdownStatus !== prevState.countdownStatus) {
             switch (this.state.countdownStatus) {
@@ -27,12 +28,22 @@ var Countdown = React.createClass({
         }
     },
 
+        // Called before the component dies (like by switching to a new page)
+    componentWillUnmount: function () {
+        clearInterval(this.timer);
+        this.timer = undefined;
+    },
+
     startTimer: function () {
         this.timer = setInterval(() => {
             var newCount = this.state.count - 1;
             this.setState({
                 count: newCount >= 0 ? newCount : 0
             });
+
+            if (newCount === 0) {
+                this.setState({countdownStatus: 'stopped'});
+            }
         }, 1000);
     },
 

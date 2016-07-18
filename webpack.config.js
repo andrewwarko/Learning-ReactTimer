@@ -4,7 +4,7 @@ module.exports = {
     entry: [
         'script!jquery/dist/jquery.min.js',
         'script!foundation-sites/dist/foundation.min.js',
-        'webpack-dev-server/client?http://localhost:3000',
+        'webpack-dev-server/client?http://localhost:3001',
         'webpack/hot/dev-server',
         './app/app.jsx'
     ],
